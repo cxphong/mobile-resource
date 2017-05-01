@@ -2,6 +2,8 @@
 ##### 2. Đóng & mở
 ##### 3. Scroll để hiện thị edittext bị che
 
+===================================================================================================
+
 ##### 1. Sự kiện đóng & mở
 Sử dụng thư viện https://github.com/AzimoLabs/AndroidKeyboardWatcher
 
@@ -63,11 +65,11 @@ public class TestActivity extends Activity implements KeyboardWatcher.OnKeyboard
 
 ```java
 InputMethodManager inputManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-                View v = getCurrentFocus();
+View v = getCurrentFocus();
 
-                if (v != null) {
-                    inputManager.hideSoftInputFromWindow(v.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-                }
+if (v != null) {
+    inputManager.hideSoftInputFromWindow(v.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+}
 ```
 ##### 3. Scroll để hiện thị edittext bị che
 

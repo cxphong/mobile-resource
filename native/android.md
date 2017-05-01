@@ -1,30 +1,23 @@
-###### Close/Show event
-######
+##### Sự kiện đóng & mở
+##### Đóng & mở
+##### Scroll để hiện thị edittext bị che
 
-
-###### Close/Show event
-
+##### Sự kiện đóng & mở
 Sử dụng thư viện https://github.com/AzimoLabs/AndroidKeyboardWatcher
-
 Bước 1: Cài đặt 
-
 ```gradle
 dependencies {
   compile 'com.azimolabs.keyboardwatcher:keyboardwatcher:0.1.3'
 }
 ```
-
-Bước 2: Thêm thuộc tính cho Activity trong AndroidManifest.xml
-
+Bước 2: Thêm thuộc tính *adjustResize* cho Activity trong AndroidManifest.xml
 ```xml
 <activity android:name=".test.TestActivity"
 	      android:windowSoftInputMode="adjustResize">
 ```
-
 Bước 3: Thêm event trong Activity
 
 ```java
-
 public class TestActivity extends Activity implements KeyboardWatcher.OnKeyboardToggleListener {
     private static final String TAG = "TestActivity";
     private KeyboardWatcher keyboardWatcher;
@@ -33,10 +26,13 @@ public class TestActivity extends Activity implements KeyboardWatcher.OnKeyboard
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test_layout);
+        
+        // Register
         keyboardWatcher = new KeyboardWatcher(this);
         keyboardWatcher.setListener(this);
     }
 
+    // Remember unregister
     @Override
     protected void onDestroy() {
         keyboardWatcher.destroy();
@@ -54,4 +50,38 @@ public class TestActivity extends Activity implements KeyboardWatcher.OnKeyboard
     }
 }
 ```
-		 
+
+##### Đóng & mở
+###### Mở
+
+```java
+((InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE)).toggleSoftInput(0, InputMethodManager.HIDE_IMPLICIT_ONLY);
+```
+
+###### Đóng
+
+```java
+InputMethodManager inputManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                View v = getCurrentFocus();
+
+                if (v != null) {
+                    inputManager.hideSoftInputFromWindow(v.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+                }
+```
+##### Scroll để hiện thị edittext bị che
+
+Bước 1: Thêm thuộc tính *adjustResize* cho Activity trong AndroidManifest.xml
+
+```xml
+<activity android:name=".test.TestActivity"
+          android:windowSoftInputMode="adjustResize">
+```
+
+Bước 2: Đặt layout trong  *ScrollView*
+
+
+
+
+
+
+

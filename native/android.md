@@ -1,5 +1,5 @@
 ##### 1. Sự kiện đóng & mở
-##### 2. Đóng & mở
+##### 2. Đóng & mở & kiểm tra có đang mở hay không
 ##### 3. Scroll để hiện thị edittext bị che
 
 =====================================================================================
@@ -54,23 +54,10 @@ public class TestActivity extends Activity implements KeyboardWatcher.OnKeyboard
 }
 ```
 
-##### 2. Đóng & mở
-###### Mở
+##### 2. Đóng & mở & kiểm tra có đang mở hay không
 
-```java
-((InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE)).toggleSoftInput(0, InputMethodManager.HIDE_IMPLICIT_ONLY);
-```
+Dùng file https://github.com/cxphong/Android-Utils/blob/master/KeyboardUtils.java
 
-###### Đóng
-
-```java
-InputMethodManager inputManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-View v = getCurrentFocus();
-
-if (v != null) {
-    inputManager.hideSoftInputFromWindow(v.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-}
-```
 ##### 3. Scroll để hiện thị edittext bị che
 
 Bước 1: Thêm thuộc tính *adjustResize* cho Activity trong AndroidManifest.xml

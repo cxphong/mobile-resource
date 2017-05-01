@@ -1,9 +1,10 @@
-##### Sự kiện đóng & mở
-##### Đóng & mở
-##### Scroll để hiện thị edittext bị che
+##### 1. Sự kiện đóng & mở
+##### 2. Đóng & mở
+##### 3. Scroll để hiện thị edittext bị che
 
-##### Sự kiện đóng & mở
+##### 1. Sự kiện đóng & mở
 Sử dụng thư viện https://github.com/AzimoLabs/AndroidKeyboardWatcher
+
 Bước 1: Cài đặt 
 ```gradle
 dependencies {
@@ -51,7 +52,7 @@ public class TestActivity extends Activity implements KeyboardWatcher.OnKeyboard
 }
 ```
 
-##### Đóng & mở
+##### 2. Đóng & mở
 ###### Mở
 
 ```java
@@ -68,7 +69,7 @@ InputMethodManager inputManager = (InputMethodManager)getSystemService(Context.I
                     inputManager.hideSoftInputFromWindow(v.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
                 }
 ```
-##### Scroll để hiện thị edittext bị che
+##### 3. Scroll để hiện thị edittext bị che
 
 Bước 1: Thêm thuộc tính *adjustResize* cho Activity trong AndroidManifest.xml
 

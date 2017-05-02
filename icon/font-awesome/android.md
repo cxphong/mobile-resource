@@ -1,6 +1,6 @@
 #### 1. Download font-awesome tại http://fontawesome.io/#modal-download
 
-#### 2. Copy file fontawesome-webfont.ttf vào thư mục app/src/main/assets/
+#### 2. Copy file fontawesome-webfont.ttf trong folder mới download về vào thư mục app/src/main/assets/
 
 Nếu chưa có folder *asesets* thì phải tự tạo lấy
 

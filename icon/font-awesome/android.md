@@ -1,10 +1,10 @@
-#### 1. Download font-awesome tại http://fontawesome.io/#modal-download
+#### Bước 1. Download font-awesome tại http://fontawesome.io/#modal-download
 
-#### 2. Copy file fontawesome-webfont.ttf trong folder mới download về vào thư mục app/src/main/assets/
+#### Bước 2. Copy file fontawesome-webfont.ttf trong folder mới download về vào thư mục app/src/main/assets/
 
 Nếu chưa có folder *asesets* thì phải tự tạo lấy
 
-#### 3. Trong file layout tạo 1 TextView
+#### Bước 3. Trong file layout tạo 1 TextView
 
 ##### Hình ảnh dùng thuộc tính *android:text*
 ```xml
@@ -27,7 +27,7 @@ android:textSize="50sp"
 android:textColor="#00ff1e"
 ```
 
-#### 4. Cấu hình font awesome bằng code java
+#### Bước 4. Cấu hình font awesome bằng code java
 
 ```java
 Typeface fontAwesomeFont = Typeface.createFromAsset(getAssets(), "fontawesome-webfont.ttf");

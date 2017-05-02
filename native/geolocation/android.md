@@ -5,6 +5,7 @@ Bước 1: Khai báo permission trong AndroidManifest.xml & request permission
 Chọn 1 trong 2 permission sau đây:
 
 *ACCESS_COARSE_LOCATION* 
+
 *ACCESS_FINE_LOCATION*
 
 Trong đó *ACCESS_FINE_LOCATION* có độ chính xác cao hơn

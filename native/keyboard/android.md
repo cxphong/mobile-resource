@@ -1,6 +1,7 @@
 ##### 1. Sự kiện đóng & mở
 ##### 2. Đóng & mở & kiểm tra có đang mở hay không
 ##### 3. Scroll để hiện thị edittext bị che
+##### 4. Tạo keyboard mới (Chưa viết)
 
 =====================================================================================
 

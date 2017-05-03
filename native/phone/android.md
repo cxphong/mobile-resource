@@ -27,7 +27,7 @@ startActivity(surf);
 
 ## 2. Lắng nghe trạng thái cuộc gọi đến
 ```java
-	public enum PhoneState {
+public enum PhoneState {
     none,
     ringing
 }
@@ -44,7 +44,7 @@ phoneFilter.addAction(Intent.ACTION_NEW_OUTGOING_CALL);
 registerReceiver(mPhoneCallReceiver, phoneFilter);
 
 
-	public class CustomPhoneStateListener extends PhoneStateListener {
+public class CustomPhoneStateListener extends PhoneStateListener {
     private static final String TAG = "PhoneStateListener";
 
     @Override

@@ -1,11 +1,11 @@
-##### 1. Sự kiện đóng & mở
-##### 2. Đóng & mở & kiểm tra có đang mở hay không
-##### 3. Scroll để hiện thị edittext bị che
-##### 4. Tạo keyboard mới (Chưa viết)
+## 1. Sự kiện đóng & mở
+## 2. Đóng & mở & kiểm tra có đang mở hay không
+## 3. Scroll để hiện thị edittext bị che
+## 4. Tạo keyboard mới (Chưa viết)
 
 =====================================================================================
 
-##### 1. Sự kiện đóng & mở
+## 1. Sự kiện đóng & mở
 Sử dụng thư viện https://github.com/AzimoLabs/AndroidKeyboardWatcher
 
 Bước 1: Cài đặt 
@@ -55,11 +55,11 @@ public class TestActivity extends Activity implements KeyboardWatcher.OnKeyboard
 }
 ```
 
-##### 2. Đóng & mở & kiểm tra có đang mở hay không
+## 2. Đóng & mở & kiểm tra có đang mở hay không
 
 Dùng file https://github.com/cxphong/Android-Utils/blob/master/KeyboardUtils.java
 
-##### 3. Scroll để hiện thị edittext bị che
+## 3. Scroll để hiện thị edittext bị che
 
 Bước 1: Thêm thuộc tính *adjustResize* cho Activity trong AndroidManifest.xml
 

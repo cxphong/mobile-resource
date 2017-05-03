@@ -1,6 +1,6 @@
 Sử dụng file https://github.com/cxphong/Android-Utils/blob/master/GPSUtils.java
 
-#### Bước 1: Khai báo permission trong AndroidManifest.xml & request permission
+## Bước 1: Khai báo permission trong AndroidManifest.xml & request permission
 
 Chọn 1 trong 2 permission sau đây:
 
@@ -10,9 +10,9 @@ Chọn 1 trong 2 permission sau đây:
 
 Trong đó *ACCESS_FINE_LOCATION* có độ chính xác cao hơn
 
-#### Bước 2: Sử dụng file GPSUtils.java
+## Bước 2: Sử dụng file GPSUtils.java
 
-##### Lấy giá trị location hiện tại
+### Lấy giá trị location hiện tại
 
 ```java
 GPSUtils.requestLocation(this, new GPSUtils.GPSUtilsListener() {
@@ -23,7 +23,7 @@ GPSUtils.requestLocation(this, new GPSUtils.GPSUtilsListener() {
 });
 ```
 
-##### Track giá trị location liên tục
+### Track giá trị location liên tục
 
 ###### Start
 
@@ -36,7 +36,7 @@ GPSUtils.startWatchLocation(this, new GPSUtils.GPSUtilsListener() {
 });
 ```
 
-###### Stop
+### Stop
 
 ```java
 GPSUtils.stopWatchLocation();

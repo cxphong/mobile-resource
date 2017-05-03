@@ -27,85 +27,85 @@ startActivity(surf);
 
 ## 2. Lắng nghe trạng thái cuộc gọi đến
 ```java
- 	public enum PhoneState {
-        none,
-        ringing
-    }
+	public enum PhoneState {
+    none,
+    ringing
+}
 
-    public PhoneState phoneState = PhoneState.none;
-    private int prev_state;
-    private IntentFilter phoneFilter;
-    String incoming_number;
+public PhoneState phoneState = PhoneState.none;
+private int prev_state;
+private IntentFilter phoneFilter;
+String incoming_number;
 
-    // Register
-    phoneFilter = new IntentFilter();
-    phoneFilter.addAction(TelephonyManager.ACTION_PHONE_STATE_CHANGED);
-    phoneFilter.addAction(Intent.ACTION_NEW_OUTGOING_CALL);
-    registerReceiver(mPhoneCallReceiver, phoneFilter);
-    
+// Register
+phoneFilter = new IntentFilter();
+phoneFilter.addAction(TelephonyManager.ACTION_PHONE_STATE_CHANGED);
+phoneFilter.addAction(Intent.ACTION_NEW_OUTGOING_CALL);
+registerReceiver(mPhoneCallReceiver, phoneFilter);
 
-  	public class CustomPhoneStateListener extends PhoneStateListener {
-        private static final String TAG = "PhoneStateListener";
 
-        @Override
-        public void onCallStateChanged(int state, String incomingNumber) {
-            if (incomingNumber != null && incomingNumber.length() > 0)
-                incoming_number = incomingNumber;
+	public class CustomPhoneStateListener extends PhoneStateListener {
+    private static final String TAG = "PhoneStateListener";
 
-            switch (state) {
-                case TelephonyManager.CALL_STATE_RINGING:
-	                Log.i(TAG, "onCallStateChanged: new call");
-	                if (phoneState == PhoneState.none) {
-	                    phoneState = PhoneState.ringing;
-	                }
+    @Override
+    public void onCallStateChanged(int state, String incomingNumber) {
+        if (incomingNumber != null && incomingNumber.length() > 0)
+            incoming_number = incomingNumber;
 
-	                prev_state = state;
-	                break;
+        switch (state) {
+            case TelephonyManager.CALL_STATE_RINGING:
+                Log.i(TAG, "onCallStateChanged: new call");
+                if (phoneState == PhoneState.none) {
+                    phoneState = PhoneState.ringing;
+                }
 
-                case TelephonyManager.CALL_STATE_OFFHOOK:
-                    Log.i(TAG, "da nhac may");
+                prev_state = state;
+                break;
+
+            case TelephonyManager.CALL_STATE_OFFHOOK:
+                Log.i(TAG, "da nhac may");
+                if (phoneState == PhoneState.ringing) {
+                    phoneState = PhoneState.none;
+                }
+
+                prev_state = state;
+                break;
+
+            case TelephonyManager.CALL_STATE_IDLE:
+                if ((prev_state == TelephonyManager.CALL_STATE_OFFHOOK)) {
+                    prev_state = state;
+                    //Answered Call which is ended
+                    Log.i(TAG, "onCallStateChanged: End call");
                     if (phoneState == PhoneState.ringing) {
                         phoneState = PhoneState.none;
                     }
+                }
 
+                if ((prev_state == TelephonyManager.CALL_STATE_RINGING)) {
                     prev_state = state;
-                    break;
-
-                case TelephonyManager.CALL_STATE_IDLE:
-                    if ((prev_state == TelephonyManager.CALL_STATE_OFFHOOK)) {
-                        prev_state = state;
-                        //Answered Call which is ended
-                        Log.i(TAG, "onCallStateChanged: End call");
-                        if (phoneState == PhoneState.ringing) {
-                            phoneState = PhoneState.none;
-                        }
+                    Log.i(TAG, "onCallStateChanged: " + "Rejected or Missed call");
+                    if (phoneState == PhoneState.ringing) {
+                        phoneState = PhoneState.none;
                     }
+                }
+                break;
 
-                    if ((prev_state == TelephonyManager.CALL_STATE_RINGING)) {
-                        prev_state = state;
-                        Log.i(TAG, "onCallStateChanged: " + "Rejected or Missed call");
-                        if (phoneState == PhoneState.ringing) {
-                            phoneState = PhoneState.none;
-                        }
-                    }
-                    break;
-
-            }
         }
     }
+}
 
-    private final BroadcastReceiver mPhoneCallReceiver = new BroadcastReceiver() {
+private final BroadcastReceiver mPhoneCallReceiver = new BroadcastReceiver() {
 
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            Log.i(TAG, "onReceive: " + intent.getAction());
-            if (!(intent.getAction().equals(Intent.ACTION_NEW_OUTGOING_CALL))) {
-                TelephonyManager telephony = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE); //TelephonyManager object
-                CustomPhoneStateListener customPhoneListener = new CustomPhoneStateListener();
-                telephony.listen(customPhoneListener, PhoneStateListener.LISTEN_CALL_STATE); //Register our listener with TelephonyManager
-            }
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        Log.i(TAG, "onReceive: " + intent.getAction());
+        if (!(intent.getAction().equals(Intent.ACTION_NEW_OUTGOING_CALL))) {
+            TelephonyManager telephony = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE); //TelephonyManager object
+            CustomPhoneStateListener customPhoneListener = new CustomPhoneStateListener();
+            telephony.listen(customPhoneListener, PhoneStateListener.LISTEN_CALL_STATE); //Register our listener with TelephonyManager
         }
-    };
+    }
+};
 
 ```
 ## 3. Lắng nghe trạng thái cuộc gọi đi

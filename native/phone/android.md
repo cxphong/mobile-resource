@@ -27,7 +27,24 @@ startActivity(surf);
 
 ## 2. Lắng nghe trạng thái cuộc gọi đến
 ```java
-  public class CustomPhoneStateListener extends PhoneStateListener {
+ 	public enum PhoneState {
+        none,
+        ringing
+    }
+
+    public PhoneState phoneState = PhoneState.none;
+    private int prev_state;
+    private IntentFilter phoneFilter;
+    String incoming_number;
+
+    // Register
+    phoneFilter = new IntentFilter();
+    phoneFilter.addAction(TelephonyManager.ACTION_PHONE_STATE_CHANGED);
+    phoneFilter.addAction(Intent.ACTION_NEW_OUTGOING_CALL);
+    registerReceiver(mPhoneCallReceiver, phoneFilter);
+    
+
+  	public class CustomPhoneStateListener extends PhoneStateListener {
         private static final String TAG = "PhoneStateListener";
 
         @Override
@@ -76,5 +93,19 @@ startActivity(surf);
             }
         }
     }
+
+    private final BroadcastReceiver mPhoneCallReceiver = new BroadcastReceiver() {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Log.i(TAG, "onReceive: " + intent.getAction());
+            if (!(intent.getAction().equals(Intent.ACTION_NEW_OUTGOING_CALL))) {
+                TelephonyManager telephony = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE); //TelephonyManager object
+                CustomPhoneStateListener customPhoneListener = new CustomPhoneStateListener();
+                telephony.listen(customPhoneListener, PhoneStateListener.LISTEN_CALL_STATE); //Register our listener with TelephonyManager
+            }
+        }
+    };
+
 ```
 ## 3. Lắng nghe trạng thái cuộc gọi đi

@@ -7,6 +7,8 @@
 #### 7. Pair & unpair device trên android & iOS ra sao?
 #### 8. Cơ chế hoạt động của ble trên iOS như thế nào ở mode backgroudnd & forground & app fore stop?
 #### 9. Tìm hiểu thư viện wrapper trên android & iOS và chạy example mẫu
+#### 10. Tăng tốc write 
+#### 11. Max packet length
 
 ### Trả lời
 
@@ -35,3 +37,9 @@
 	- Beacon: https://en.wikipedia.org/wiki/Bluetooth_low_energy_beacon
 	- Eddystone: https://developers.google.com/beacons/
 
+#### 10. Tăng tốc write 
+	- Chọn write type without response
+	- 
+
+#### 11. Max packet length
+	20 bytes data không bao gồm các header + CRC + ... của các layer bên dưới

@@ -1,7 +1,7 @@
-## 1. Giới thiệu 
+## 1. Giới thiệu
 
 EventBus là thư viện giao tiếp giữa các Activity, Fragment, Service, Thread, ...
-thay thế cho BroadCastReceiver của Android. 
+thay thế cho BroadCastReceiver của Android.
 
 Ưu điểm là có thể pass các object thay vì primitive data type của BroadcastReceiver.
 
@@ -27,12 +27,12 @@ public class MessageEvent {
 }
 ```
 
-### Lăng nghe MessageEvent
+### Lắng nghe MessageEvent
 
 
 ```java
 
-/* Tên hàm tuỳ ý, chỉ kiểm tra input parameter 
+/* Tên hàm tuỳ ý, chỉ kiểm tra input parameter
  * Ví dụ: Hàm này chỉ lắng nghe MessageEvent
  */
 @Subscribe (threadMode = ThreadMode.MAIN)
@@ -68,7 +68,7 @@ http://greenrobot.org/eventbus/documentation/delivery-threads-threadmode/
 
 ### BACKGROUND
 
-*subcribe* sẽ ko chạy trên main thread. Nếu thread của *post* không là main thread thì 
+*subcribe* sẽ ko chạy trên main thread. Nếu thread của *post* không là main thread thì
 sẽ chạy luôn mà không cần tạo thread mới. Nêu *post* đang ở main thread thì tự động tạo
 1 thread để chạy *subcribe*
 

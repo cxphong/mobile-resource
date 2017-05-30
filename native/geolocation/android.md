@@ -25,7 +25,7 @@ GPSUtils.requestLocation(this, new GPSUtils.GPSUtilsListener() {
 
 ### Track giá trị location liên tục
 
-###### Start
+#### Start
 
 ```java
 GPSUtils.startWatchLocation(this, new GPSUtils.GPSUtilsListener() {
@@ -36,7 +36,7 @@ GPSUtils.startWatchLocation(this, new GPSUtils.GPSUtilsListener() {
 });
 ```
 
-### Stop
+#### Stop
 
 ```java
 GPSUtils.stopWatchLocation();

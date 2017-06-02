@@ -7,6 +7,7 @@ Tạo file <<vector>>.xml từ file .svg
 ### Bước 2: Dùng file mới tạo trong imageview
 
 ```xml
+ic_why.xml là file vector được tạo ra ở trên
 <ImageView
     android:layout_width="100dp"
     android:layout_height="100dp"

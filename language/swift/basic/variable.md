@@ -12,3 +12,12 @@ let a = "abc"
 let b = "def"
 print (a + ", " +  b)
 ```
+
+
+#### boolean
+
+```swift
+let x = true
+let y = false
+```
+

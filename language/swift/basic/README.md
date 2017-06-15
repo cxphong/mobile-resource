@@ -1,0 +1,19 @@
+- Variable
+- Constant
+- Datatype
+- Log, print
+- Conditional
+- Loop
+- Array
+- Collection
+- String
+- Switch/case
+- Optional
+- Fucntion
+- Class
+- Closure
+- Enum
+- Protocol
+- Type Cast
+- Timer, sleep
+- 

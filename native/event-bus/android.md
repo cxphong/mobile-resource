@@ -17,6 +17,8 @@ compile 'org.greenrobot:eventbus:3.0.0'
 
 ### Tạo 1 MessageEvent tuỳ ý
 
+Object này dùng để pass đi 
+
 ```java
 public class MessageEvent {
     public final String message;

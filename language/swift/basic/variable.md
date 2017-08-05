@@ -2,8 +2,8 @@
 ```swift
 var x = 5
 var x : Int8 = 5
-var x : Int8? # x can be nil
-var x : Int8! # x can't be nil
+var x : Int8?
+var x : Int8! 
 ```
 
 #### Print value

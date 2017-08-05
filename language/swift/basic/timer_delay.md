@@ -1,17 +1,17 @@
 #### Delay
 
 ```Swift
-sleep(4) # delay 4s
+sleep(4) // Delay 4s
 ```
 
 ```Swift
-DispatchQueue.main.after(when: .now() + 10) { # delay 10s
+DispatchQueue.main.after(when: .now() + 10) { // Delay 10s
 	// Function
 }
 ```
 
 ```Swift
-self.perform(#selector(getBrightness), with: self, afterDelay: 2) # Delay 2s
+self.perform(#selector(getBrightness), with: self, afterDelay: 2) // Delay 2s
 
 func getBrightness() {
        
